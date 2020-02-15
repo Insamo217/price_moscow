@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>{{ page_title }}</title>
+  </head>
+  <body class='text-center'>
+    <div class="container text-center">
+    <h2>Узнать рыночную стоимость двухкомнатной квартиры в Москве</h2>
+    <h4>Оценка недвижимости может отличаться от реальной на 5-10%</h4>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div class="col-12 text-center">
+          <form action="{{ url_for('predict') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+              {{ form.metro.label }}<br>
+              {{ form.metro }}
+            </div>
+            <div class="form-group">
+              {{ form.time_to_metro.label }}<br>
+              {{ form.time_to_metro }}
+              <ul>
+                {% for error in form.time_to_metro.errors %}
+                  <li style="color:red;">{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="form-group">
+              {{ form.flat_area.label }}<br>
+              {{ form.flat_area }}
+              <ul>
+                {% for error in form.flat_area.errors %}
+                  <li style="color:red;">{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="form-group">
+              {{ form.floor.label }}<br>
+              {{ form.floor }}
+              <ul>
+                {% for error in form.floor.errors %}
+                  <li style="color:red;">{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="form-group">
+              {{ form.num_of_floors.label }}<br>
+              {{ form.num_of_floors }}
+              <ul>
+                {% for error in form.num_of_floors.errors %}
+                  <li style="color:red;">{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="form-group">
+              {{ form.type_of_repair.label }}<br>
+              {{ form.type_of_repair }}
+            </div>
+            <div class="form-group"> 
+              {{ form.year_of_constr.label }}<br>
+              {{ form.year_of_constr }}
+              <ul>
+                {% for error in form.year_of_constr.errors %}
+                  <li style="color:red;">{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="form-group">
+              {{ form.type_of_house.label }}<br>
+              {{ form.type_of_house }}
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">Оценить</button>
+          </form>
+        </div>
+    </div>
+    </div>   
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
