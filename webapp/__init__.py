@@ -1,14 +1,10 @@
-from geopy import distance
-import pickle
 import pandas as pd
 import joblib
-import csv
+
 from flask import (
     Flask, 
-    render_template, 
-    redirect,
-    request, 
-    jsonify
+    render_template,
+    request
 )
 from webapp.forms import ParametersFlat
 from webapp.tools import (
@@ -18,6 +14,7 @@ from webapp.tools import (
     change_of_typehome,
     place_value
 )
+
 
 def create_app():
     app = Flask(__name__)

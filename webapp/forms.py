@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, SubmitField, HiddenField, SelectField
+from wtforms import StringField, IntegerField, SubmitField, SelectField
 from wtforms.validators import DataRequired, InputRequired, NumberRange
+
 
 class ParametersFlat(FlaskForm):
     metro = StringField('Станция метро', validators=None, render_kw={"class": "form-control"})

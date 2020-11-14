@@ -1,14 +1,7 @@
-import requests
 import csv
-from webapp.forms import ParametersFlat
-from flask import (
-    current_app,
-    Flask, 
-    render_template,
-    request, 
-    jsonify
-)
+from flask import request
 from spellchecker import SpellChecker
+
 
 def distance_to_metro(metro):
     # Функция определение расстояние от центра до станции метро пользователя
@@ -24,12 +17,14 @@ def distance_to_metro(metro):
             if metro_correct_up in row:
                 return row[2]
 
+
 def age_of_house(year_of_constr):
     # Вычисление возраста дома
     age_constr = request.form['year_of_constr']
     age = (2020 - int(age_constr))
     return age
-     
+
+
 def change_of_repair(type_of_repair):
     # Функция работы выпадающего списка выбора типа ремонта
     global cos
@@ -47,6 +42,7 @@ def change_of_repair(type_of_repair):
         euro = 0
         design = 1
     return cos, euro, design
+
 
 def change_of_typehome(type_of_house):
     # Функция работы вырадающего списка выбора типа дома
@@ -73,6 +69,7 @@ def change_of_typehome(type_of_house):
         modular_ch = 0
         monolithic_ch = 1
     return brick_ch, panel_ch, modular_ch, monolithic_ch
+
 
 def place_value(number):
     return ("{:,}".format(number))
