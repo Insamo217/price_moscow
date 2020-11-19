@@ -12,4 +12,4 @@ class ParametersFlat(FlaskForm):
     type_of_repair = SelectField('Тип ремонта',choices = [('cosmetic', 'Косметический'), ('eurorepair', 'Евроремонт'), ('designer', 'Дизайнерский')], validators=[DataRequired()], render_kw={"class": "form-control"})
     year_of_constr = IntegerField('Год постройки', validators=[InputRequired(), NumberRange(min=1840, max=2020, message='Введите корректные данные')], render_kw={"class": "form-control"})
     type_of_house = SelectField('Тип дома', choices = [('brick', 'Кирпичный'), ('panel', 'Панельный'), ('modular', 'Блочный'), ('monolithic', 'Монолитный')], validators=[DataRequired()], render_kw={"class": "form-control"})
-    submit = SubmitField('Узнать стоимость', validators=None)
+    submit = SubmitField('Узнать стоимость квартиры', validators=None)

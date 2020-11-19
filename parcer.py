@@ -3,7 +3,7 @@ import csv
 import lxml
 import re
 from bs4 import BeautifulSoup as bs
-import pickle, shelve
+import pickle,shelve
 import socks
 import socket
 import time

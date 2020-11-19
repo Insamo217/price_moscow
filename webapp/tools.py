@@ -4,7 +4,6 @@ from spellchecker import SpellChecker
 
 
 def distance_to_metro(metro):
-    # Функция определение расстояние от центра до станции метро пользователя
     metro = str(request.form['metro'])
     spell = SpellChecker()
     spell.word_frequency.load_text_file("metro_station.txt")
@@ -19,25 +18,23 @@ def distance_to_metro(metro):
 
 
 def age_of_house(year_of_constr):
-    # Вычисление возраста дома
     age_constr = request.form['year_of_constr']
     age = (2020 - int(age_constr))
     return age
 
 
 def change_of_repair(type_of_repair):
-    # Функция работы выпадающего списка выбора типа ремонта
     global cos
     type_of_rep = request.form['type_of_repair']
-    if type_of_rep == "cosmetic": # Если выбран тип ремонта Косметический
+    if type_of_rep == "cosmetic":
         cos = 1
         euro = 0
         design = 0
-    elif type_of_rep == "eurorepair": # Если выбран тип ремонта Евроремонт
+    elif type_of_rep == "eurorepair":
         cos = 0
         euro = 1
         design = 0
-    elif type_of_rep == "designer": # Если выбран тип ремонта Дизайнерский
+    elif type_of_rep == "designer":
         cos = 0
         euro = 0
         design = 1
@@ -45,25 +42,24 @@ def change_of_repair(type_of_repair):
 
 
 def change_of_typehome(type_of_house):
-    # Функция работы вырадающего списка выбора типа дома
     global brick_ch
     type_of_hous = request.form['type_of_house']
-    if type_of_hous == "brick": # Если выбран тип дома Кирпичный
+    if type_of_hous == "brick":
         brick_ch = 1
         panel_ch = 0
         modular_ch = 0
         monolithic_ch = 0
-    elif type_of_hous == "panel": # Если выбран тип дома Панельный
+    elif type_of_hous == "panel":
         brick_ch = 0
         panel_ch = 1
         modular_ch = 0
         monolithic_ch = 0
-    elif type_of_hous == "modular": # Если выбран тип дома Блочный
+    elif type_of_hous == "modular":
         brick_ch = 0
         panel_ch = 0
         modular_ch = 1
         monolithic_ch = 0
-    elif type_of_hous == "monolithic": # Если выбран тип дома Монолитный
+    elif type_of_hous == "monolithic":
         brick_ch = 0
         panel_ch = 0
         modular_ch = 0
